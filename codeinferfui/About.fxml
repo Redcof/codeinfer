@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<StackPane prefHeight="378.0" prefWidth="431.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="codeinferfui.AboutController">
+   <children>
+      <AnchorPane id="AnchorPane" prefHeight="236.0" prefWidth="503.0" styleClass="mainFxmlClass">
+         <effect>
+            <Shadow blurType="GAUSSIAN" color="#ff0000f2" height="255.0" radius="127.0" width="255.0" />
+         </effect>
+         <stylesheets>
+            <URL value="@project/newProject.css" />
+         </stylesheets>
+      </AnchorPane>
+      <Pane prefHeight="236.0" prefWidth="419.0">
+         <children>
+            <Label fx:id="ErrorMessageLabel" alignment="TOP_LEFT" contentDisplay="RIGHT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="432.0" prefWidth="487.0" textFill="WHITE">
+               <font>
+                  <Font name="System Italic" size="15.0" />
+               </font>
+               <effect>
+                  <ImageInput>
+                     <source>
+                        <Image url="@images/logo.gif" />
+                     </source>
+                  </ImageInput>
+               </effect>
+            </Label>
+            <Button contentDisplay="CENTER" layoutX="207.0" layoutY="354.0" mnemonicParsing="false" onMouseClicked="#back" prefHeight="15.0" prefWidth="8.0" text="OK" textAlignment="JUSTIFY">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <effect>
+                  <ImageInput>
+                     <source>
+                        <Image url="@images/OK.png" />
+                     </source>
+                  </ImageInput>
+               </effect>
+               <font>
+                  <Font name="System Italic" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="closeButton" alignment="TOP_LEFT" contentDisplay="TOP" layoutX="6.0" layoutY="4.0" mnemonicParsing="false" onMouseClicked="#close" prefHeight="1.0" prefWidth="24.0" text="Back" textAlignment="JUSTIFY">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <effect>
+                  <ImageInput>
+                     <source>
+                        <Image url="@images/close.png" />
+                     </source>
+                  </ImageInput>
+               </effect>
+               <font>
+                  <Font name="System Italic" size="12.0" />
+               </font>
+            </Button>
+            <Label alignment="TOP_CENTER" layoutX="197.0" layoutY="-3.0" nodeOrientation="LEFT_TO_RIGHT" style="-fx-border-radius: 5; -fx-border-color: ;" text="About" textFill="WHITE">
+               <effect>
+                  <Reflection bottomOpacity="0.08" fraction="0.69" topOpacity="0.13" />
+               </effect>
+               <font>
+                  <Font name="System Italic" size="19.0" />
+               </font>
+            </Label>
+            <Label layoutX="141.0" layoutY="53.0" prefHeight="17.0" prefWidth="149.0" text="Codeinfer" textFill="WHITE">
+               <font>
+                  <Font size="31.0" />
+               </font>
+            </Label>
+            <Label layoutX="18.0" layoutY="346.0" text="Virsion 1.0" textFill="WHITE" />
+         </children>
+      </Pane>
+   </children>
+</StackPane>

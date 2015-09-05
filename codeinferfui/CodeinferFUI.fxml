@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.web.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.input.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<StackPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="codeinferfui.CodeinferFUIController">
+   <children>
+      <AnchorPane minHeight="40.0" minWidth="40.0" prefHeight="513.0" prefWidth="537.0">
+         <children>
+            <Label layoutX="736.0" layoutY="406.0" prefHeight="107.0" prefWidth="102.0" text="LOGO">
+               <effect>
+                  <ImageInput>
+                     <source>
+                        <Image url="@images/codeinfer.png" />
+                     </source>
+                  </ImageInput>
+               </effect>
+               <cursor>
+                  <Cursor fx:constant="MOVE" />
+               </cursor>
+            </Label>
+            <Pane prefHeight="513.0" prefWidth="601.0">
+               <children>
+                  <HTMLEditor fx:id="consoleArea" htmlText="&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body contenteditable=&quot;true&quot;&gt;&lt;/body&gt;&lt;/html&gt;" layoutY="-44.0" prefHeight="557.0" prefWidth="600.0" />
+               </children>
+            </Pane>
+            <Button layoutX="606.0" layoutY="440.0" mnemonicParsing="false" onMouseClicked="#infer" prefHeight="51.0" prefWidth="33.0" text="Run">
+               <effect>
+                  <ImageInput>
+                     <source>
+                        <Image url="@images/Run.png" />
+                     </source>
+                  </ImageInput>
+               </effect>
+            </Button>
+            <Hyperlink id="openOutput" fx:id="openOutputHP" layoutX="651.0" layoutY="453.0" onMouseClicked="#openOutPut" prefHeight="23.0" prefWidth="83.0" text="Open Output" />
+            <Label fx:id="ProjectName" layoutX="601.0" layoutY="32.0" prefHeight="32.0" prefWidth="240.0" textFill="RED">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <effect>
+                  <DropShadow color="#ff3300dd" height="47.68" radius="31.494999999999997" spread="0.75" width="80.3" />
+               </effect>
+            </Label>
+         </children>
+      </AnchorPane>
+      <MenuBar layoutY="2.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="25.0" prefWidth="836.0" styleClass="menuBar" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" StackPane.alignment="TOP_CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" styleClass="menu" text="File">
+            <items>
+              <MenuItem onAction="#openNewProjectFUI" styleClass="menu" text="New">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="N" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator>
+                  </MenuItem>
+                  <MenuItem mnemonicParsing="false" onAction="#openCodeinfer" text="Open">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="O" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator>
+                  </MenuItem>
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" styleClass="menu" text="Help">
+            <items>
+                  <MenuItem mnemonicParsing="false" onAction="#openCpp" text="C++">
+                     <accelerator>
+                        <KeyCodeCombination alt="DOWN" code="C" control="UP" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator>
+                  </MenuItem>
+                  <MenuItem mnemonicParsing="false" onAction="#openJava" text="JAVA">
+                     <accelerator>
+                        <KeyCodeCombination alt="DOWN" code="J" control="UP" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator>
+                  </MenuItem>
+              <MenuItem mnemonicParsing="false" onAction="#openAbout" text="About">
+                     <accelerator>
+                        <KeyCodeCombination alt="DOWN" code="A" control="UP" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator>
+                  </MenuItem>
+            </items>
+               <accelerator>
+                  <KeyCodeCombination alt="UP" code="H" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+               </accelerator>
+          </Menu>
+        </menus>
+         <effect>
+            <InnerShadow color="#ff0000cd" height="148.39" radius="49.94" width="53.37" />
+         </effect>
+      </MenuBar>
+      <Button alignment="BOTTOM_LEFT" cacheHint="SCALE_AND_ROTATE" contentDisplay="CENTER" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onMouseClicked="#exit" prefHeight="0.0" prefWidth="16.0" StackPane.alignment="TOP_LEFT">
+         <effect>
+            <ImageInput>
+               <source>
+                  <Image url="@images/close.png" />
+               </source>
+            </ImageInput>
+         </effect>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <StackPane.margin>
+            <Insets left="5.0" top="5.0" />
+         </StackPane.margin>
+      </Button>
+   </children>
+</StackPane>

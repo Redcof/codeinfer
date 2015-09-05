@@ -1,49 +1,47 @@
-package Codeinfer.Inferists;
+package codeinfer.Inferists;
 
-import Codeinfer.PreProcessing.SourcePreProcessor;
-import Codeinfer.RegEx.Expression;
+import codeinfer.LoaderRunner.Run;
+import codeinfer.PreProcessing.SourcePreProcessor;
 import codeinfer.PreProcessing.Util;
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
+import codeinfer.RegEx.Expression;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import codeinfer.Super.INFO;
+import java.io.File;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 
 
 class KeyValuePair{
-	private String KEY = new String();
-	private String VALUE = new String();
+	private String REGEX = new String();
+	private String DEFINATION = new String();
         private String ARGUMENTS[] = null;
 
     KeyValuePair(String key,String value,String []args) {
-        this.KEY = key;
-        this.VALUE = value;
+        this.REGEX = key;
+        this.DEFINATION = value;
         this.ARGUMENTS = args;
     }
     
     KeyValuePair(String key,String value) {
-        this.KEY = key;
-        this.VALUE = value;
+        this.REGEX = key;
+        this.DEFINATION = value;
     }
     
-	public String getKEY() {
-		return KEY;
+	public String getREGEX() {
+		return REGEX;
 	}
         
-	public String getVALUE() {
-		return VALUE;
+	public String getDEFINATION() {
+		return DEFINATION;
 	}
         
-	public void setKEY(String kEY) {
-		this.KEY = kEY;
+	public void setREGEX(String kEY) {
+		this.REGEX = kEY;
 	}
         
-	public void setVALUE(String vALUE) {
-		this.VALUE = vALUE;
+	public void setDEFINATION(String vALUE) {
+		this.DEFINATION = vALUE;
 	}
         
         public String[] getARGUMENTS() {
@@ -66,7 +64,7 @@ class KeyValuePair{
 
         @Override
         public String toString() {
-            return "KEY: "+this.getKEY()+"\nVALUE: "+this.getVALUE()+"\nARGUMENTS: "+this.getSeparateArguments(); //To change body of generated methods, choose Tools | Templates.
+            return "REGEX: "+this.getREGEX()+"\nDEFINATION: "+this.getDEFINATION()+"\nARGUMENTS: "+this.getSeparateArguments(); //To change body of generated methods, choose Tools | Templates.
         }
 }
 
@@ -88,8 +86,7 @@ public class HEADER_PreProcessorDirectiveRemove {
         
         public HEADER_PreProcessorDirectiveRemove(StringBuffer source){
             this.sourceBuffer = source;
-            this.CaptureRemovePreProcessors();
-            this.resolvePreProcessors();
+            
         }
        
         /**
@@ -139,9 +136,7 @@ public class HEADER_PreProcessorDirectiveRemove {
 	 */
         
 	public void CaptureRemovePreProcessors(){	
-            Util.message("*********************************"
-                    + "  CapturePreProcessor start ***************************************");
-		
+            
 		//#include remove
                 String includePattern = Expression.HASH_INCLUDE;
 		Matcher includeMatcher = Pattern.compile(includePattern).matcher(this.sourceBuffer);
@@ -167,22 +162,14 @@ public class HEADER_PreProcessorDirectiveRemove {
 		int i =0;
                 SourcePreProcessor spp = new SourcePreProcessor();
 		while(funcMatcher.find()){
-                        System.out.println("\n"+funcMatcher.group(2));
-			
-                        this.HASH_DEFINE_FUNCTIONS_LIST.add(new KeyValuePair(
+                    Util.sopln(funcMatcher.group(2));
+                    this.HASH_DEFINE_FUNCTIONS_LIST.add(new KeyValuePair(
                                         "((\\b"+funcMatcher.group(2)+"\\b)\\((\\S*|\\s*|,)\\))",//capture key
                                         funcMatcher.group(4), //Capture DFN
                                         spp.argumentTokenizer(funcMatcher.group(3))//capture arguments
                         ));//creating list
                         this.sourceBuffer = new StringBuffer(this.sourceBuffer.toString().replace(funcMatcher.group(0),""));//remove hash defines
 		}
-            
-                
-                Util.SaveFile("Output/REMOVED_INCLUDE.java", this.sourceBuffer);
-            
-             Util.message("*********************************"
-                    + "  CapturePreProcessor end ***************************************");
-		   
 	}
         /**
          * Capture all macrows from files and replace them using macrow defn 
@@ -190,20 +177,19 @@ public class HEADER_PreProcessorDirectiveRemove {
         public void resolvePreProcessors(){
             
             int i = 0;
-                while(i < this.HASH_DEFINE_FUNCTIONS_LIST.size())
+            while(i < this.HASH_DEFINE_FUNCTIONS_LIST.size())
                 {
-                    Util.message("-------------------------------------------");
-                    Util.message("SELECTED: "+this.HASH_DEFINE_FUNCTIONS_LIST.get(i).getKEY());
-                    Matcher useFuncMatcher = Pattern.compile(this.HASH_DEFINE_FUNCTIONS_LIST.get(i).getKEY()).matcher(this.sourceBuffer);//match all #functions
+                  
+                    Matcher useFuncMatcher = Pattern.compile(this.HASH_DEFINE_FUNCTIONS_LIST.get(i).getREGEX()).matcher(this.sourceBuffer);//match all #functions
                     while(useFuncMatcher.find()){
-                       Util.message(useFuncMatcher.group(0));
+                     
                        //CODE TODO
                        //Capture And Replace the DEFINE Usages
                        
                        
                        
                     }
-                    Util.message("-------------------------------------------");
+                    
                     i++;
                 }
         }

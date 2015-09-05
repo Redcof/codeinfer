@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<StackPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="codeinferfui.project.NewProjectController">
+   <children>
+      <AnchorPane id="AnchorPane" prefHeight="184.0" prefWidth="528.0" styleClass="mainFxmlClass">
+          <stylesheets>
+              <URL value="@newProject.css" />
+          </stylesheets>
+         <effect>
+            <Shadow blurType="GAUSSIAN" color="#8c007ad8" height="255.0" radius="127.0" width="255.0" />
+         </effect>
+      </AnchorPane>
+      <Pane prefHeight="236.0" prefWidth="528.0">
+         <children>
+            <TextField fx:id="browseCPPinput" editable="false" layoutX="18.0" layoutY="115.0" onMouseClicked="#browseCppFile" prefHeight="25.0" prefWidth="481.0" promptText="Brows C++ File" styleClass="inputBar" stylesheets="@../codeinferfui.css">
+               <font>
+                  <Font name="System Italic" size="12.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </TextField>
+            <TextField fx:id="browseOutputDir" editable="false" layoutX="18.0" layoutY="161.0" onMouseClicked="#browseOutputDir" prefHeight="25.0" prefWidth="481.0" promptText="Project Location" styleClass="inputBar" stylesheets="@../codeinferfui.css">
+               <font>
+                  <Font name="System Italic" size="12.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </TextField>
+            <Label fx:id="ErrorMessageLabel" alignment="TOP_RIGHT" contentDisplay="RIGHT" layoutX="213.0" layoutY="39.0" prefHeight="17.0" prefWidth="285.0" text="123" textFill="#f2c5ff">
+               <font>
+                  <Font name="System Italic" size="12.0" />
+               </font>
+            </Label>
+            <Group layoutY="12.0" nodeOrientation="LEFT_TO_RIGHT">
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+            </Group>
+            <Button contentDisplay="CENTER" layoutX="357.0" layoutY="198.0" mnemonicParsing="false" onMouseClicked="#clearInputFields" prefHeight="25.0" prefWidth="24.0" text="Reset" textAlignment="JUSTIFY">
+               <font>
+                  <Font name="System Italic" size="12.0" />
+               </font>
+               <effect>
+                  <ImageInput>
+                     <source>
+                        <Image url="@../images/Clean.png" />
+                     </source>
+                  </ImageInput>
+               </effect>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button contentDisplay="CENTER" layoutX="139.0" layoutY="198.0" mnemonicParsing="false" onMouseClicked="#setProjectBundle" prefHeight="15.0" prefWidth="8.0" text="OK" textAlignment="JUSTIFY">
+               <font>
+                  <Font name="System Italic" size="12.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <effect>
+                  <ImageInput>
+                     <source>
+                        <Image url="@../images/OK.png" />
+                     </source>
+                  </ImageInput>
+               </effect>
+            </Button>
+            <Button fx:id="closeButton" alignment="TOP_LEFT" contentDisplay="TOP" layoutX="6.0" layoutY="4.0" mnemonicParsing="false" onMouseClicked="#close" prefHeight="1.0" prefWidth="24.0" text="Back" textAlignment="JUSTIFY">
+               <font>
+                  <Font name="System Italic" size="12.0" />
+               </font>
+               <effect>
+                  <ImageInput>
+                     <source>
+                        <Image url="@../images/close.png" />
+                     </source>
+                  </ImageInput>
+               </effect>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Label alignment="TOP_CENTER" layoutX="205.0" layoutY="-2.0" nodeOrientation="LEFT_TO_RIGHT" style="-fx-border-radius: 5; -fx-border-color: ;" text="New Project" textFill="WHITE">
+               <effect>
+                  <Reflection bottomOpacity="0.08" fraction="0.69" topOpacity="0.13" />
+               </effect>
+               <font>
+                  <Font name="System Italic" size="19.0" />
+               </font>
+            </Label>
+            <TextField fx:id="projectName" layoutX="18.0" layoutY="70.0" onKeyReleased="#checkProjectName" prefHeight="25.0" prefWidth="481.0" promptText="Project Name" styleClass="inputBar">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font name="System Italic" size="12.0" />
+               </font>
+            </TextField>
+         </children>
+      </Pane>
+   </children>
+</StackPane>

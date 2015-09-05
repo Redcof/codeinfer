@@ -2,7 +2,7 @@
  * Contains final static Expression class which contains all essential reguler expressions 
  * @author soumen
  */
-package Codeinfer.RegEx;
+package codeinfer.RegEx;
 /**
  * This class Contains all essential Regular Expressions.
  * @author soumen
@@ -106,9 +106,9 @@ abstract public class Expression
 	 * A = 01
 	 * B = 02
 	 * C = 03
-	 * 	 .
-	 * 	 .
-	 * 	 .
+	 * 	.
+	 * 	.
+	 * 	.
 	 * Z = 26
 	 */
 	public static final String CODEINFER_REPLACE_CPP_STRING = new String("031504050914060518");
@@ -173,6 +173,9 @@ abstract public class Expression
          */
         public static final String HASH_INCLUDE = new String("#include( *|\\t*)(\"|\\<( *|\\t*))(\\S+\\.h|)(( *|\\t*)>|\")");
 	
+        public static final String DELEIMITER_STR = "$#"; 
+        public static final String DELEIMITER_REX = "\\$#"; 
+        
 	public static final String GROUP_OF(String Expression){return BRACE_OPEN+Expression+BRACE_CLOSE;}
 	
 	public static final String LENGTH(int Length){return "{"+Length+"}";}
@@ -199,10 +202,3 @@ abstract public class Expression
 		return temp;
 	}
 }
-
-/***
- * 
- * 
-([a-zA-Z0-9]+)\((([a-zA-Z0-9]+)(,([a-zA-Z0-9])+)*?)*?\)
-([a-zA-Z0-9]+)\\[([ ,.a-zA-Z0-9]+)\\]
- */

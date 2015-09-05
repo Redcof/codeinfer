@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<StackPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="codeinferfui.ErrorController">
+   <children>
+      <AnchorPane id="AnchorPane" prefHeight="184.0" prefWidth="528.0" styleClass="mainFxmlClass">
+         <effect>
+            <Shadow blurType="GAUSSIAN" color="#ff0000f2" height="255.0" radius="127.0" width="255.0" />
+         </effect>
+         <stylesheets>
+            <URL value="@project/newProject.css" />
+         </stylesheets>
+      </AnchorPane>
+      <Pane prefHeight="236.0" prefWidth="528.0">
+         <children>
+            <Label fx:id="ErrorMessageLabel" alignment="TOP_RIGHT" contentDisplay="RIGHT" layoutX="20.0" layoutY="83.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="28.0" prefWidth="487.0" text="An error occured when trying to parse" textFill="WHITE">
+               <font>
+                  <Font name="System Italic" size="15.0" />
+               </font>
+            </Label>
+            <Button contentDisplay="CENTER" layoutX="252.0" layoutY="162.0" mnemonicParsing="false" onMouseClicked="#back" prefHeight="15.0" prefWidth="8.0" text="OK" textAlignment="JUSTIFY">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <effect>
+                  <ImageInput>
+                     <source>
+                        <Image url="@images/OK.png" />
+                     </source>
+                  </ImageInput>
+               </effect>
+               <font>
+                  <Font name="System Italic" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="closeButton" alignment="TOP_LEFT" contentDisplay="TOP" layoutX="6.0" layoutY="4.0" mnemonicParsing="false" onMouseClicked="#close" prefHeight="1.0" prefWidth="24.0" text="Back" textAlignment="JUSTIFY">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <effect>
+                  <ImageInput>
+                     <source>
+                        <Image url="@images/close.png" />
+                     </source>
+                  </ImageInput>
+               </effect>
+               <font>
+                  <Font name="System Italic" size="12.0" />
+               </font>
+            </Button>
+            <Label alignment="TOP_CENTER" layoutX="244.0" layoutY="-3.0" nodeOrientation="LEFT_TO_RIGHT" style="-fx-border-radius: 5; -fx-border-color: ;" text="Error" textFill="WHITE">
+               <effect>
+                  <Reflection bottomOpacity="0.08" fraction="0.69" topOpacity="0.13" />
+               </effect>
+               <font>
+                  <Font name="System Italic" size="19.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </children>
+</StackPane>

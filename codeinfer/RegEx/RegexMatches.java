@@ -1,6 +1,6 @@
-package Codeinfer.RegEx;
-import Codeinfer.Inferists.ShowIt;
-import Codeinfer.PreProcessing.SourcePreProcessor;
+package codeinfer.RegEx;
+import codeinfer.Inferists.ShowIt;
+import codeinfer.PreProcessing.SourcePreProcessor;
 import codeinfer.PreProcessing.Util;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -62,7 +62,7 @@ public class RegexMatches
 	public static void main( String args[] ) throws IOException,FileNotFoundException, InterruptedException{
 
 		ShowIt s1 = new ShowIt();
-		SourcePreProcessor spp = new SourcePreProcessor("E:\\Personal\\JAVA\\Codeinfer\\src\\PreProcessing\\CppProg.cpp");
+		SourcePreProcessor spp = new SourcePreProcessor("E:\\Personal\\JAVA\\codeinfer\\src\\PreProcessing\\CppProg.cpp");
     	ArrayList<String> stringTokens = new ArrayList<String>();
 		int i = 0;
 	    String source_array = spp.fileToString();

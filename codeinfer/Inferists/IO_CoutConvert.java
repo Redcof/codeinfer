@@ -1,10 +1,11 @@
 //works fine 30-10-2014 
 //But issue in string containing semi colon (;)
-package Codeinfer.Inferists;
+//Colon (;) issue is resolved
+package codeinfer.Inferists;
 
 import codeinfer.PreProcessing.Util;
 import java.util.ArrayList;
-import Codeinfer.RegEx.Expression;
+import codeinfer.RegEx.Expression;
 
 public class IO_CoutConvert {
 	ArrayList<String> sop;	
@@ -19,14 +20,18 @@ public class IO_CoutConvert {
                      return srcList;
                  else{
 		 for(; startIndex <= srcList.size()-2;){
+                     
                     if(srcList.get(startIndex).equals("cout") && 
                             srcList.get(startIndex+1).equals("<") && 
                             srcList.get(startIndex+2).equals("<")){
+                        
                         srcList.remove(startIndex);//cout
 			srcList.remove(startIndex);//<
 			srcList.remove(startIndex);//<
 			StartPosition = startIndex;//point at string or variable
+                        
                         while(!srcList.get(startIndex).equals(";")){
+                            
                             if(srcList.get(startIndex).equals("<") && 
                                 srcList.get(startIndex+1).equals("<")){
 				srcList.remove(startIndex);//<
@@ -51,10 +56,10 @@ public class IO_CoutConvert {
 	return srcList;
     }
         
-        public StringBuffer doCoutConvert(StringBuffer sourceBuffer,ArrayList<String> strings)
+        public StringBuffer patchCPPStrings(StringBuffer sourceBuffer,ArrayList<String> strings)
         {
+            Util.log("Cout resolving... ",false);
             String STR_RX = Expression.CODEINFER_REPLACE_CPP_STRING;
-            Util.message(STR_RX);
             sourceBuffer = new StringBuffer(sourceBuffer.toString().trim());
             String temp = sourceBuffer.toString();
             int i =0;
@@ -62,6 +67,7 @@ public class IO_CoutConvert {
             {
                 temp = temp.replace(STR_RX+i, strings.get(i));
             }
+            Util.log("Cout resolved.",false);
             return new StringBuffer(temp);
         }
 }

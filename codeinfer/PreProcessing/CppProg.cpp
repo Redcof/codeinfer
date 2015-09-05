@@ -1,34 +1,79 @@
 #include<stdio.h>
-#include<conio.h>
-#include<iostream.h>
-#define ADD(a,b) ((a)+(b))
-#define MAX(a,b) ((a)>(b)?(a):(b))
-#define s 23
+#define MAX 16
+#define ADD(a+b) (a)+(b)
+int m(){
+    return 0;
+}
+
+
+
+class Day
+{
+    signed int count;
+    int month;
+public:
+    int total()
+    {
+        return count;
+    }
+    struct Man
+    {
+        char name;
+    private:
+        float gotok;
+        float f;
+    };
+    
+private:
+    float holy()
+    {
+        return month;
+    }
+};
+
+
+class Hour
+{
+    int count;
+    int month;
+public:
+    int total()
+    {
+        return count;
+    }
+    struct Man
+    {
+        char name;
+    private:
+        float gotok;
+        float f;
+    };
+private:
+    float holy()
+    {
+        return month;
+    }
+};
+
+
 int main()
 {
-
-    cout<<"Sum is"<<ADD(5,6);
-    cout<<"MAX value is: "<<ADD(ADD(2,3),ADD(2,3));
-    FILE * fp = fopen("hshs.txt","r");
-    cout<<"\n";
-    return 0;
     
 }
 
-int x()
+
+union gooh
 {
-    cout<<"Sum is"<<ADD(5,6);
-    cout<<"MAX value is: "<<ADD(ADD(2,3),ADD(2,3));
-    cout<<"Sum is"<<ADD(5,6);
-    cout<<"MAX value is: "<<ADD(ADD(2,3),ADD(2,3));
-    cout<<"Sum is"<<ADD(5,6);
-    cout<<"MAX value is: "<<ADD(ADD(2,3),ADD(2,3));
-    FILE * fp = fopen("hshs.txt","r");
-    cout<<"\n";
-    return 0;    
-}
-
-class x{
-    
+private:
+    int x,y;
+    float hello()
+    {        
+        cin>>x>>y;
+        
+        cout<<"Hello \" Balocks"<<x<<"jkoiu"<<superd(5,6);
+        return x;
+    }
+    float f;
 };
+
 

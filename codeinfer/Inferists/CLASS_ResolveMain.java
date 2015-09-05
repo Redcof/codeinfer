@@ -1,19 +1,19 @@
 //Working fine 31.10.2014
 //steel no issue detected
-package Codeinfer.Inferists;
+package codeinfer.Inferists;
 
+import codeinfer.PreProcessing.Util;
+import codeinfer.Super.INFO;
 import java.util.ArrayList;
 
-public class CLASS_ResolveMain {
+public class CLASS_ResolveMain{
 	
-	String MainTemplate = new String();
-	public CLASS_ResolveMain(String FileName){
-            if(FileName.isEmpty())
-                FileName = "Demo";
-            
-            MainTemplate = " class " + FileName + " {\n public static void main(String args[])\n";
-	}
-	public  ArrayList<String> doResolveMain(ArrayList<String> srcList){            
+	public static final String MainTemplate = "public class "+INFO.INPUT_FILE_NAME_ONLY+"{\npublic static void main(String args[])\n";
+        
+	public CLASS_ResolveMain(){}
+        
+	public  ArrayList<String> doResolveMain(ArrayList<String> srcList){
+            Util.log("Resolving main()...",false);
 	for(int i=0;i < srcList.size(); i++){           
             if(srcList.get(i).equals("main")){
                 srcList.remove(i);//main                        
@@ -24,11 +24,11 @@ public class CLASS_ResolveMain {
                     if(srcList.get(i).equals("{"))
                         break;
                     else
-                        srcList.remove(i);//(.....)
-                
+                        srcList.remove(i);//(.....)               
             }
 	}
         srcList.add("}");
+        Util.log("main() Resolved.",false);
 	return srcList;
         }
         
